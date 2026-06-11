@@ -34,4 +34,4 @@ No build, lint, typecheck, or test commands exist.
 
 ## `.opencode/` directory
 
-Internal opencode plugin + one skill (`ui-ux-pro-max`). `.gitignore` inside it ignores its own `package.json`/`package-lock.json`. Not part of the app's dependency tree.
+Internal opencode plugin config. `.gitignore` inside it ignores its own `package.json`/`package-lock.json`. Not part of the app's dependency tree.
