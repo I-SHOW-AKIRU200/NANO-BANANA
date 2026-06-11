@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nano Banana Prompt Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-icon">🍌</span>
+          <div class="logo-text">
+            <h1>Prompt Studio</h1>
+            <span class="logo-sub">Nano Banana Pro</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="search-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search prompts by title, tags, or description..." autocomplete="off">
+            <kbd class="search-shortcut">/</kbd>
+          </div>
+          <button class="btn btn-ghost btn-favorites" id="favToggle" title="Show Favorites Only">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span class="fav-label">Favorites</span>
+            <span class="fav-count" id="favCount">0</span>
+          </button>
+          <button class="btn btn-icon btn-mobile-menu" id="menuToggle" aria-label="Toggle filters">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <select id="sortSelect" class="sort-select">
+            <option value="newest">Newest</option>
+            <option value="name">Name A-Z</option>
+            <option value="name-desc">Name Z-A</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h3>Filters</h3>
+          <button class="btn btn-xs btn-ghost" id="clearFilters">Clear all</button>
+          <button class="sidebar-close" id="sidebarClose" aria-label="Close filters">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="filter-section">
+          <h4 class="filter-label">Category</h4>
+          <div class="filter-chips" id="categoryFilters"></div>
+        </div>
+        <div class="filter-section">
+          <h4 class="filter-label">Tags</h4>
+          <div class="filter-chips" id="tagFilters"></div>
+        </div>
+        <div class="filter-section">
+          <h4 class="filter-label">Source</h4>
+          <div class="filter-chips" id="sourceFilters"></div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="results-bar">
+          <span id="resultCount">0</span> prompts found
+          <div class="active-filters" id="activeFilters"></div>
+        </div>
+        <div class="grid" id="promptGrid"></div>
+      </main>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modal">
+        <button class="btn btn-icon modal-close" id="modalClose" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
