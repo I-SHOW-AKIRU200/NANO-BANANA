@@ -74,3 +74,4 @@ The app is a static SPA — deploy anywhere:
 ## 📄 License
 
 MIT — Use freely, modify, share.
+
